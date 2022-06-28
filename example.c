@@ -39,7 +39,7 @@ int main()
     printf("\tContent type: %d(%s)\n",
            deserialized->content_type,
            message__content_type__descriptor.values[deserialized->content_type].name);
-    printf("\tPayload: %s\n", (char *)deserialized->payload.data);
+    printf("\tPayload: %.*s\n", (int)deserialized->payload.len, (char *)deserialized->payload.data);
 
     printf("Done.\n");
 }
