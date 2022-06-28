@@ -22,7 +22,7 @@ int main()
     msg.serial_number = 1;
     msg.content_type = MESSAGE__CONTENT_TYPE__TEXT_PLAIN;
     msg.payload.data = (uint8_t *)body;
-    msg.payload.len = strlen(body);
+    msg.payload.len = strnlen(body, 24);
 
     // Serialization
     size_t buf_len = message__get_packed_size(&msg);
