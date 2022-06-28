@@ -36,7 +36,9 @@ int main()
     Message *deserialized = message__unpack(NULL, buf_len, buf);
     printf("\nDeserialized: \n");
     printf("\tSerial number: %d\n", deserialized->serial_number);
-    printf("\tContent type: %d\n", deserialized->content_type);
+    printf("\tContent type: %d(%s)\n",
+           deserialized->content_type,
+           message__content_type__descriptor.values[deserialized->content_type].name);
     printf("\tPayload: %s\n", (char *)deserialized->payload.data);
 
     printf("Done.\n");
