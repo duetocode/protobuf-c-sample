@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+message Message {
+    uint32 serial_number = 1;
+    ContentType content_type = 2;
+    bytes payload = 3;
+    enum ContentType {
+        NOOP = 0;
+        TEXT_PLAIN = 1;
+    };
+};
